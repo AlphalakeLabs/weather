@@ -3,8 +3,7 @@ function getWeather() {
     var user_input = document.getElementById('city-input').value;
     var weatherInfoElement = document.getElementById('weather-info');
     var bodyElement = document.body;
- 
- 
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${user_input}&units=metric&APPID=${api_key}`)
         .then(response => {
             if (!response.ok) {
@@ -21,8 +20,7 @@ function getWeather() {
             var windDirection = data.wind.deg;
             var pressure = data.main.pressure;
             var visibility = data.visibility;
- 
- 
+
             // Update weather info display
             weatherInfoElement.innerHTML = `
                 <p><strong>Weather:</strong> ${weather.charAt(0).toUpperCase() + weather.slice(1)}</p>
@@ -32,16 +30,13 @@ function getWeather() {
                 <p><strong>Pressure:</strong> ${pressure} hPa</p>
                 <p><strong>Visibility:</strong> ${visibility} meters</p>
             `;
- 
- 
+
             // Show weather info section
             weatherInfoElement.style.display = 'block';
- 
- 
+
             // Add blurred class to body element
             bodyElement.classList.add('blurred');
- 
- 
+
             // Reset body class and set new background based on weather
             setTimeout(() => {
                 bodyElement.className = 'blurred'; // This will remove all previous classes
@@ -66,20 +61,15 @@ function getWeather() {
             console.error('Error fetching weather data:', error);
             weatherInfoElement.textContent = 'City not found or error fetching data.';
         });
- }
- 
- 
- // Function to handle key press event for Enter key
- function handleKeyPress(event) {
+}
+
+// Function to handle key press event for Enter key
+function handleKeyPress(event) {
     if (event.key === 'Enter') {
         getWeather();
     }
- }
- 
- 
- // Add event listener to input field to trigger getWeather on Enter key press
- var cityInput = document.getElementById('city-input');
- cityInput.addEventListener('keypress', handleKeyPress);
- 
- 
- 
+}
+
+// Add event listener to input field to trigger getWeather on Enter key press
+var cityInput = document.getElementById('city-input');
+cityInput.addEventListener('keypress', handleKeyPress);
