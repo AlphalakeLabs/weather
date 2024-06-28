@@ -1,0 +1,110 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.3s ease-in-out; /* Faster transition for background image */
+}
+
+/* Container for weather information */
+.weather-container {
+    background-color: rgba(255, 255, 255, 0.8); /* More translucent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    position: relative; /* Ensure it's static */
+    z-index: 1; /* Ensure it's above the background */
+}
+
+/* Title styles */
+.weather-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input and button styles */
+.weather-container input[type="text"],
+.weather-container button {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    width: calc(100% - 20px);
+    max-width: 400px;
+}
+
+.weather-container button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.weather-container button:hover {
+    background-color: #45a049;
+}
+
+/* Weather info display styles */
+#weather-info {
+    background-color: rgba(249, 249, 249, 0.6); /* Slightly more translucent */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Background images for different weather conditions */
+body.clear {
+    background-image: url('images/clear.jpg');
+}
+
+body.clouds {
+    background-image: url('images/clouds.jpg');
+}
+
+body.rain {
+    background-image: url('images/rain.jpg');
+}
+
+body.snow {
+    background-image: url('images/snow.jpg');
+}
+
+body.default {
+    background-image: url('images/default.jpg');
+}
+
+/* Keyframes for blur effect */
+@keyframes blur-in {
+    0% {
+        filter: blur(10px);
+    }
+    100% {
+        filter: blur(0px);
+    }
+}
+
+body.blurred {
+    animation: blur-in 0.3s ease-in-out; /* Faster blur animation */
+}

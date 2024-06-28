@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="default">
+    <div class="weather-container">
+        <h1>Weather Info</h1>
+        <div class="weather">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
+            <div id="weather-info" style="display: none;">
+                <p><strong>Weather:</strong> <span id="weather-value"></span></p>
+                <p><strong>Temperature:</strong> <span id="temp-value"></span></p>
+                <p><strong>Humidity:</strong> <span id="humidity-value"></span></p>
+                <p><strong>Wind:</strong> <span id="wind-value"></span></p>
+                <p><strong>Pressure:</strong> <span id="pressure-value"></span></p>
+                <p><strong>Visibility:</strong> <span id="visibility-value"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
