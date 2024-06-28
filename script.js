@@ -31,15 +31,15 @@ function getWeather() {
                 <p><strong>Visibility:</strong> ${visibility} meters</p>
             `;
 
-            // Show weather info section
+            // Show weather info section (if not already visible)
             weatherInfoElement.style.display = 'block';
 
-            // Add blurred class to body element
-            bodyElement.classList.add('blurred');
+            // Add class to indicate weather info is visible
+            bodyElement.classList.add('weather-visible');
 
             // Reset body class and set new background based on weather
             setTimeout(() => {
-                bodyElement.className = 'blurred'; // This will remove all previous classes
+                bodyElement.className = ''; // Reset all classes
                 if (weather.includes('clear')) {
                     bodyElement.classList.add('clear');
                 } else if (weather.includes('cloud')) {
@@ -53,13 +53,14 @@ function getWeather() {
                 }
                 // Remove the blurred class after the animation completes
                 setTimeout(() => {
-                    bodyElement.classList.remove('blurred');
+                    bodyElement.classList.remove('weather-visible');
                 }, 300); // Duration should match the CSS animation duration
             }, 0);
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
             weatherInfoElement.textContent = 'City not found or error fetching data.';
+            weatherInfoElement.style.display = 'block'; // Show error message
         });
 }
 
