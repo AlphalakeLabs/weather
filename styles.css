@@ -53,7 +53,7 @@ body {
 }
 
 .weather-container button {
-    background-color: #28A745;
+    background-color: #4CAF50;
     color: white;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -72,6 +72,20 @@ body {
     padding: 10px;
     margin-top: 20px;
     text-align: left;
+}
+
+/* User location weather display styles */
+.user-location-weather {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* More translucent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: left;
+    z-index: 2; /* Ensure it's above the background */
+    width: 200px;
 }
 
 /* Background images for different weather conditions */
